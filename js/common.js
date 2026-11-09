@@ -37,3 +37,33 @@ function ligarLogin({ area, aoEntrar }) {
   });
 }
 const sair = async () => { try { await api('/api/me', { method: 'POST', body: {} }); } catch {} location.reload(); };
+
+// ─── Detalhes do projeto (janela) ───
+function detalhesHtml(e) {
+  const sec = (t, c) => `<section class="d-sec"><h4>${t}</h4>${c}</section>`;
+  return `
+    <div class="d-topo">${imagemEquipe(e, 'd-img')}<div><span class="tag-ordem">${e.ordem}º a apresentar</span><span class="area">${esc(e.area)}</span><h3 id="d-titulo">${esc(e.nome)}</h3><p class="d-frase">${esc(e.frase)}</p></div></div>
+    ${sec('O problema', `<p>${esc(e.problema)}</p>`)}
+    ${sec('A solução', `<p>${esc(e.solucao)}</p>`)}
+    ${sec('O que o sistema faz', `<ul class="d-lista">${e.funcionalidades.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>`)}
+    <div class="d-duas">
+      ${sec('Para quem é', `<p>${esc(e.publico)}</p>`)}
+      ${sec('Diferencial', `<p>${esc(e.diferencial)}</p>`)}
+      ${sec('Impacto esperado', `<p>${esc(e.impacto)}</p>`)}
+      ${sec('Como é feito', `<p>${esc(e.tecnologia)}</p>`)}
+    </div>
+    ${sec('Situação atual', `<p>${esc(e.situacao)}</p>`)}
+    <div class="d-pedido"><b>O que a equipe pede às empresas:</b> ${esc(e.pedido)}</div>`;
+}
+
+function abrirDetalhes(e) {
+  let dlg = $('#dlg-detalhes');
+  if (!dlg) {
+    dlg = document.createElement('dialog'); dlg.id = 'dlg-detalhes'; dlg.setAttribute('aria-labelledby', 'd-titulo');
+    dlg.addEventListener('click', (ev) => { if (ev.target === dlg) dlg.close(); });
+    document.body.appendChild(dlg);
+  }
+  dlg.innerHTML = `<div class="d-barra"><span class="eyebrow">Visão geral do projeto</span><button class="btn sec d-fechar" type="button" aria-label="Fechar">Fechar</button></div><div class="d-corpo">${detalhesHtml(e)}</div>`;
+  dlg.querySelector('.d-fechar').onclick = () => dlg.close();
+  dlg.showModal(); dlg.querySelector('.d-corpo').scrollTop = 0;
+}

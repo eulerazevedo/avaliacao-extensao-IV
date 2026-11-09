@@ -33,6 +33,7 @@
           <span class="tag-ordem">${e.ordem}º a apresentar</span><span class="area" style="color:var(--purple-hi);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em">${esc(e.area)}</span>
           <h2>${esc(e.nome)}</h2><p>${esc(e.frase)}</p>
           <p><b style="color:var(--accent-hi)">Pedido:</b> ${esc(e.pedido)}</p>
+          <button class="btn sec" type="button" id="ver-det">Ver visão geral completa</button>
         </div></aside>
         <div class="notas">
           ${cfg.criterios.map((c) => {
@@ -71,6 +72,7 @@
   document.addEventListener('pointerup', (ev) => { if (ev.target.matches('input[type=range].vazio')) ev.target.dispatchEvent(new Event('input', { bubbles: true })); });
 
   document.addEventListener('click', async (ev) => {
+    if (ev.target.id === 'ver-det') { abrirDetalhes(cfg.equipes[atual]); return; }
     const tab = ev.target.closest('.tab');
     if (tab) { atual = Number(tab.dataset.i); desenhar(); return; }
     if (ev.target.id === 'salvar') {
