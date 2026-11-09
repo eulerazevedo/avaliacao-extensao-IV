@@ -1,0 +1,10 @@
+{
+  "name": "pitch-extensao",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Avaliação dos pitches de Extensão IV (Uninorte) por empresários convidados",
+  "scripts": {
+    "dev": "node dev-server.js"
+  },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><title>Resultado · Pitch Extensão IV</title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="robots" content="noindex, nofollow" /><meta name="theme-color" content="#0D1117" /><link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="preconnect" href="https://api.fontshare.com" /><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin /><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500&f[]=satoshi@700,500,400&display=swap" /><link rel="stylesheet" href="/css/style.css" /></head>
+<body>
+<header class="nav"><div class="wrap"><a class="brand" href="/"><i>P</i><span>Pitch Extensão IV</span></a><ul><li><a class="l" href="/" >Projetos</a></li><li><a class="l" href="/avaliar" >Avaliar</a></li><li><a class="l" href="/resultado" aria-current="page">Resultado</a></li></ul></div></header>
+<main>
+<div class="gate" id="gate" hidden>
+  <form id="form-login" autocomplete="off">
+    <span class="eyebrow">Área da organização</span>
+    <h1>Ver resultados</h1>
+    <p>Acesso restrito à organização do evento.</p>
+    <label class="f" for="senha">Senha de resultados</label>
+    <input class="in" id="senha" name="senha" type="password" required placeholder="Senha de resultados" />
+    <div class="erro" id="erro" role="alert" hidden></div>
+    <button class="btn pri" type="submit">Entrar</button>
+  </form>
+</div>
+<div class="wrap painel" id="painel" hidden>
+  <div class="topo"><div><span class="eyebrow">Resultado</span><h1>Notas dos projetos</h1></div><div class="acoes-av"><span class="quem" id="atualizado"></span><button class="btn sec" id="sair" type="button">Sair</button></div></div>
+  <div class="bar-tools"><button class="btn sec" id="atualizar" type="button">Atualizar</button><button class="btn sec" id="csv" type="button">Baixar CSV</button><button class="btn sec" id="imprimir" type="button">Imprimir</button></div>
+  <div id="aviso-banco"></div>
+  <h2 style="font-size:1.5rem;margin:18px 0 12px">Ranking</h2>
+  <div class="rank" id="rank"></div>
+  <h2 style="font-size:1.5rem;margin:36px 0 12px">Quem avaliou e quanto deu</h2>
+  <div class="tabela-wrap"><table id="matriz"></table></div>
+  <h2 style="font-size:1.5rem;margin:36px 0 12px">Notas por critério (média dos avaliadores)</h2>
+  <div class="tabela-wrap"><table id="tabela"></table></div>
+  <h2 style="font-size:1.5rem;margin:36px 0 4px">Detalhe por avaliador</h2>
+  <div id="detalhe"></div>
+  <details style="margin-top:40px"><summary>Zerar todas as avaliações</summary><p style="margin:10px 0;color:var(--text-muted)">Apaga todas as notas, por exemplo depois de testes. Não dá para desfazer. Digite ZERAR para confirmar.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><input class="in" id="conf" placeholder="ZERAR" style="max-width:200px" /><button class="btn danger" id="zerar" type="button">Zerar</button></div><div class="aviso" id="zerar-msg"></div></details>
+</div>
+</main>
+<script src="/js/common.js"></script>
+<script src="/js/resultado.js"></script>
+</body></html>

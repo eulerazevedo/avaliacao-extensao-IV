@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><title>Avaliar · Pitch Extensão IV</title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="robots" content="noindex, nofollow" /><meta name="theme-color" content="#0D1117" /><link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="preconnect" href="https://api.fontshare.com" /><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin /><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500&f[]=satoshi@700,500,400&display=swap" /><link rel="stylesheet" href="/css/style.css" /></head>
+<body>
+<header class="nav"><div class="wrap"><a class="brand" href="/"><i>P</i><span>Pitch Extensão IV</span></a><ul><li><a class="l" href="/" >Projetos</a></li><li><a class="l" href="/avaliar" aria-current="page">Avaliar</a></li><li><a class="l" href="/resultado" >Resultado</a></li></ul></div></header>
+<main>
+<div class="gate" id="gate" hidden>
+  <form id="form-login" autocomplete="off">
+    <span class="eyebrow">Área do avaliador</span>
+    <h1>Entrar para avaliar</h1>
+    <p>Informe o seu nome e a senha que a organização passou. Suas notas ficam salvas e você pode ajustá-las enquanto avalia.</p>
+    <label class="f" for="nome">Seu nome</label>
+    <input class="in" id="nome" name="nome" required minlength="2" maxlength="60" placeholder="Ex.: Maria Souza" />
+    <label class="f" for="senha">Senha</label>
+    <input class="in" id="senha" name="senha" type="password" required placeholder="Senha de avaliação" />
+    <div class="erro" id="erro" role="alert" hidden></div>
+    <button class="btn pri" type="submit">Entrar</button>
+  </form>
+</div>
+<div class="wrap painel" id="painel" hidden>
+  <div class="topo"><div><span class="eyebrow">Painel de avaliação</span><h1>Olá, <span id="quem"></span></h1></div><div class="acoes-av"><span class="quem" id="contagem"></span><button class="btn sec" id="sair" type="button">Sair</button></div></div>
+  <div class="prog" aria-hidden="true"><i id="prog" style="width:0%"></i></div>
+  <div class="tabs" id="tabs" role="tablist" aria-label="Equipes"></div>
+  <div id="conteudo"></div>
+</div>
+</main>
+<script src="/js/common.js"></script>
+<script src="/js/avaliar.js"></script>
+</body></html>
